@@ -1,8 +1,9 @@
+#include "Member.h"
+
 #include <iostream>
+
 #include <map>
 #include<iterator>
-#include "Member.cpp"
-#include "Member.h"
 using namespace std;
 
 
@@ -60,11 +61,30 @@ void test_follow_myself(){
     }
 	else cout<<" great! Member cant be following hemself"<<endl;
 }
+
+void test3 (){
+	Member yitzhak, Gilad;
+	Gilad.follow(yitzhak);
+    int follow_number = yitzhak.numFollowing();
+	Gilad.follow(yitzhak);
+
+	if(yitzhak.numFollowing()!=follow_number  )
+		count<<"problem: Member can follow twice after one Member"<<endl;
+	else
+		count<<"the function work sussesfull"<<endl;
+}
+
+
+
+
+
+}
+
 int main(){
 	test_follow_myself();
 	test_follow();
 	test_unfollow();
-
+ 	test3 ()
 
 
 	return 0;
