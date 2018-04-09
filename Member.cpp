@@ -15,18 +15,18 @@ Member::Member(){
 
 void Member::follow(Member& other){
  	if(this->id!=other.id){
-		 if(followers.find(other.id)==followers.end()){
-	pair<int,Member*> ptr;
-// // insert other to my members of following
-		ptr.first=other.id;
-		ptr.second=&other;
-		following.insert(ptr);//&
+		 if(following.find(other.id)==following.end()){
+			pair<int,Member*> ptr;
+	// // insert other to my members of following
+			ptr.first=other.id;
+			ptr.second=&other;
+			following.insert(ptr);//&
 
-// // insert this to other members of followers
-		ptr.first=this ->id;
-		ptr.second=this;
+	// // insert this to other members of followers
+			ptr.first=this ->id;
+			ptr.second=this;
 
-		other.followers.insert( ptr );
+			other.followers.insert(ptr);
 
 			}
 	 }
@@ -34,7 +34,7 @@ void Member::follow(Member& other){
 
 void Member::unfollow(Member& other){ 
  	if(this->id!=other.id){
-	map<int,Member*>::iterator find1;
+		map<int,Member*>::iterator find1;
 		// erase from the map that follow after other.
 	if((find1=other.followers.find(this->id))!=other.followers.end()){
 		other.followers.erase(find1);

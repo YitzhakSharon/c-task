@@ -5,6 +5,7 @@
 #include<iterator>
 using namespace std;
 
+Member avi, beni, chana;
 
 
 void test_unfollow(){
@@ -33,16 +34,16 @@ void test_follow(){
 	reut.follow(itzko);
 	hadar.follow(reut);
 	itzko.follow(hadar);
-		// cout << "hadar - followers :" << hadar.numFollowers() << endl;
-		// cout << "hadar - following :" << hadar.numFollowing() << endl;
-		// cout << "reut - followers :" << reut.numFollowers() << endl;
-		// cout << "reut - following :" << reut.numFollowing() << endl;
-		// cout << "itzko - followers :" << itzko.numFollowers() << endl;
-		// cout << "itzko - following " << itzko.numFollowing() << endl;
+		cout << "hadar - followers :" << hadar.numFollowers() << endl;
+		cout << "hadar - following :" << hadar.numFollowing() << endl;
+		cout << "reut - followers :" << reut.numFollowers() << endl;
+		cout << "reut - following :" << reut.numFollowing() << endl;
+		cout << "itzko - followers :" << itzko.numFollowers() << endl;
+		cout << "itzko - following " << itzko.numFollowing() << endl;
 		
 
-	if((hadar.numFollowing() != 2)&&(hadar.numFollowers() != 0)&&(reut.numFollowing() != 1)&&(reut.numFollowers() != 1)&&
-	(itzko.numFollowing() != 0)&&(itzko.numFollowers() != 2)){
+	if((hadar.numFollowing() != 2)||(hadar.numFollowers() != 0)||(reut.numFollowing() != 1)||(reut.numFollowers() != 1)||
+	(itzko.numFollowing() != 0)||(itzko.numFollowers() != 2)){
 		cout << "error : follow function !" << endl;
 		//exit(0);
 	}
@@ -84,7 +85,40 @@ void unfollow_myself(){
 
 }
 
+void num (){
+	Member hadar ;
+	hadar.follow(hadar);
+	if(hadar.numFollowers()!=0 || hadar.numFollowing()!=0)
+		cout<<"problem! nume of the following or followers is incorrect"<<endl;
+	else
+		cout<<"great! the num is ok"<<endl;
+}
 
+void testFollow1() {
+	cout << "Follow Test:" << endl;
+
+	Member orel, naama;
+
+	orel.follow(orel);
+	cout << orel.numFollowers() << orel.numFollowing() << endl; // 0 0
+
+	orel.follow(naama);
+	cout << orel.numFollowers() << orel.numFollowing() << endl; // 0 1
+	cout << naama.numFollowers() << naama.numFollowing() << endl; // 1 0
+	
+	naama.follow(orel);
+	cout << orel.numFollowers() << orel.numFollowing() << endl; // 1 1
+	cout << naama.numFollowers() << naama.numFollowing() << endl; // 1 1
+
+	avi.follow(naama);
+	cout << avi.numFollowers() << avi.numFollowing() << endl; // 0 1
+	cout << naama.numFollowers() << naama.numFollowing() << endl; // 2 1
+	
+	orel.follow(naama);
+	cout << orel.numFollowers() << orel.numFollowing() << endl; // 1 1
+	cout << naama.numFollowers() << naama.numFollowing() << endl; // 2 1
+	cout << "\n" << endl;
+}
 
 
 
@@ -95,7 +129,8 @@ int main(){
 	test_unfollow();
  	test3 ();
 	 unfollow_myself();
-	 
+	 num ();
+	testFollow1();
 	return 0;
 }
 
