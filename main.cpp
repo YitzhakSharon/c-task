@@ -7,6 +7,7 @@ using namespace std;
 
 Member avi, beni, chana;
 
+
 void test1() {
 	Member dana;
 	chana.follow(dana);
