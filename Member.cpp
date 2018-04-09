@@ -14,7 +14,7 @@ Member::Member(){
 }
 
 void Member::follow(Member& other){
-	//if(this->id!=other.id){
+	if(this->id!=other.id){
 	pair<int,Member*> ptr;
 	map<int,Member*>::iterator find1;
 	find1=followers.find(other.id);				    			
@@ -33,7 +33,7 @@ void Member::follow(Member& other){
 		other.followers.insert( ptr );
 
 			}
-	//}
+	}
 }
 
 void Member::unfollow(Member& other){ 
