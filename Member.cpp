@@ -33,11 +33,10 @@ void Member::follow(Member& other){
 }
 
 void Member::unfollow(Member& other){ 
-
+ 	if(this->id!=other.id){
 	map<int,Member*>::iterator find1;
 		// erase from the map that follow after other.
 	if((find1=other.followers.find(this->id))!=other.followers.end()){
-	//if((find1=followers.find(other.id))!=followers.end()){
 		other.followers.erase(find1);
 
 		// erase from the map that follow after me.
@@ -45,6 +44,7 @@ void Member::unfollow(Member& other){
 		following.erase(find1);
 	
 		}
+	 }
 }	
 int Member::  numFollowers(){
 	return  followers.size();

@@ -1,5 +1,5 @@
-#include "Member.h"
-#include "Member.cpp"
+#include "/home/yitzhak/Desktop/cpp/Member.h"
+#include "/home/yitzhak/Desktop/cpp/Member.cpp"
 #include <iostream>
 #include <map>
 #include<iterator>
@@ -73,7 +73,16 @@ void test3 (){
 		cout<<"the function work sussesfull"<<endl;
 }
 
+void unfollow_myself(){
+	Member yitzhak;
+    int follow_number = yitzhak.numFollowers();	
+	yitzhak.unfollow(yitzhak);
+	if(follow_number!=yitzhak.numFollowers() )
+		cout<< "problem! Member can do unfollow to heself"<<endl;
+	else
+		cout<<"great! Member cant do unfoolow to hemself"<<endl;
 
+}
 
 
 
@@ -85,8 +94,8 @@ int main(){
 	test_follow();
 	test_unfollow();
  	test3 ();
+	 unfollow_myself();
 	 
-
-
 	return 0;
 }
+
