@@ -34,12 +34,12 @@ void test_follow(){
 	reut.follow(itzko);
 	hadar.follow(reut);
 	itzko.follow(hadar);
-		cout << "hadar - followers :" << hadar.numFollowers() << endl;
-		cout << "hadar - following :" << hadar.numFollowing() << endl;
-		cout << "reut - followers :" << reut.numFollowers() << endl;
-		cout << "reut - following :" << reut.numFollowing() << endl;
-		cout << "itzko - followers :" << itzko.numFollowers() << endl;
-		cout << "itzko - following " << itzko.numFollowing() << endl;
+		// cout << "hadar - followers :" << hadar.numFollowers() << endl;
+		// cout << "hadar - following :" << hadar.numFollowing() << endl;
+		// cout << "reut - followers :" << reut.numFollowers() << endl;
+		// cout << "reut - following :" << reut.numFollowing() << endl;
+		// cout << "itzko - followers :" << itzko.numFollowers() << endl;
+		// cout << "itzko - following " << itzko.numFollowing() << endl;
 		
 
 	if((hadar.numFollowing() != 2)||(hadar.numFollowers() != 0)||(reut.numFollowing() != 1)||(reut.numFollowers() != 1)||
@@ -99,24 +99,9 @@ void testFollow1() {
 
 	Member orel, naama;
 
-	orel.follow(orel);
-	cout << orel.numFollowers() << orel.numFollowing() << endl; // 0 0
-
 	orel.follow(naama);
-	cout << orel.numFollowers() << orel.numFollowing() << endl; // 0 1
+	cout << orel.numFollowers() << orel.numFollowing() << endl; // 1 0
 	cout << naama.numFollowers() << naama.numFollowing() << endl; // 1 0
-	
-	naama.follow(orel);
-	cout << orel.numFollowers() << orel.numFollowing() << endl; // 1 1
-	cout << naama.numFollowers() << naama.numFollowing() << endl; // 1 1
-
-	avi.follow(naama);
-	cout << avi.numFollowers() << avi.numFollowing() << endl; // 0 1
-	cout << naama.numFollowers() << naama.numFollowing() << endl; // 2 1
-	
-	orel.follow(naama);
-	cout << orel.numFollowers() << orel.numFollowing() << endl; // 1 1
-	cout << naama.numFollowers() << naama.numFollowing() << endl; // 2 1
 	cout << "\n" << endl;
 }
 
